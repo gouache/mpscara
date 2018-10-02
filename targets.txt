@@ -1,3 +1,4 @@
-Husky.g
-square.g
-UW Logo.g
+Test Files/Husky.g
+Test Files/square.g
+Test Files/UW Logo.g
+Test Files/xyzCalibration_cube.g
