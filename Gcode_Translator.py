@@ -205,6 +205,8 @@ for file_name in targets:
                                       *quality/movement,6)
                     [thetaA,thetaB] = find_angles(x_mid,y_mid,settings,gn)
                     code_line = "G1 X%f Y%f "%(thetaA, thetaB)
+                    if z_new != None:
+                        code_line += "Z%f "%z_new
                     if e_mid != None:
                         code_line += "E%f "%e_mid
                     if f != None:
@@ -215,6 +217,8 @@ for file_name in targets:
                     movement = math.sqrt((x_new-x_mid)**2+(y_new-y_mid)**2)
                 [thetaA,thetaB] = find_angles(x_new,y_new,settings,gn)
                 code_line = "G1 X%f Y%f "%(thetaA, thetaB)
+                if z_new != None:
+                    code_line += "Z%f "%z_new
                 if e_new != None:
                     code_line += "E%f "%e_new
                 if f != None:
