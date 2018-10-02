@@ -1,0 +1,7 @@
+Machine Name:MPSCARA_V1
+Upper Arm (L1) [mm]:98.41
+Forearm (L2) [mm]:100.66
+Inner Radius limit [mm]:90
+Handed (R/L):L
+Quality (Interpolation length) [mm]:2
+Max Speed [deg/min]:500

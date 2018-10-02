@@ -1,0 +1,3 @@
+Husky.g
+square.g
+UW Logo.g
