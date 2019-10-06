@@ -26,11 +26,6 @@ Spring Class of ME 480 at the University of for bug-catching and bug-fixing
 """
 import math
 import sys
-import re
-
-def stripComments(code):
-    return re.sub(r';.*\n?', '', code)
-
 try:
     s = open("settings.txt","r")
 except:
@@ -130,7 +125,7 @@ for file_name in targets:
     elif gn.endswith(".g"):
         # Trims the .g suffix to get the file name
         gn = gn[:-2]
-    old_g = open(gn + ".g" ,"r")
+    old_g = open(gn+".g","r")
     new_g = open(gn + "_MPSCARA.g","w+")
     new_g.write("; Translated for use with the MPSCARA Machine %s\n"%m_name)
     new_g.write("; File Quality: %d mm\n"%quality)
@@ -139,7 +134,6 @@ for file_name in targets:
     e_old = None    # Initializing extruder position variable
     f = None        # Initializing feedrate variable
     for line in old_g:
-        line = stripComments(line)
         arguments = line.upper().split()
         if line.upper().startswith("G92 "):
             # Catches variable resets, usually only useful for E value.
@@ -205,8 +199,6 @@ for file_name in targets:
                                       *quality/movement,6)
                     [thetaA,thetaB] = find_angles(x_mid,y_mid,settings,gn)
                     code_line = "G1 X%f Y%f "%(thetaA, thetaB)
-                    if z_new != None:
-                        code_line += "Z%f "%z_new
                     if e_mid != None:
                         code_line += "E%f "%e_mid
                     if f != None:
@@ -219,6 +211,7 @@ for file_name in targets:
                 code_line = "G1 X%f Y%f "%(thetaA, thetaB)
                 if z_new != None:
                     code_line += "Z%f "%z_new
+ 
                 if e_new != None:
                     code_line += "E%f "%e_new
                 if f != None:
