@@ -26,6 +26,12 @@ Spring Class of ME 480 at the University of for bug-catching and bug-fixing
 """
 import math
 import sys
+
+#xOffset = -7.0
+#yOffset = 235.0
+xOffset = 0
+yOffset = 0
+
 try:
     s = open("settings.txt","r")
 except:
@@ -98,7 +104,7 @@ def find_angles(x,y,settings,file_name):
     except:
         sys.exit("File '%s.g' attempts to go outside of build area,"%file_name
                  + " please resize or rearrange and try again.")
-    return[round(math.degrees(thetaA),4),round(math.degrees(thetaB),4)]
+    return[round(math.degrees(thetaA),4) + xOffset,round(math.degrees(thetaB),4) + yOffset]
 
 """
 This goes through every name posted in the targets file and creates a
